@@ -54,6 +54,7 @@ SAEExplainer/
 
 ```bash
 cd /path/to/SAEExplainer
+python3 -m venv .venv
 source .venv/bin/activate
 bash scripts/install_server_deps.sh --with-flash-attn
 ```
