@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.venv/
+*.log
+
+data/*
+!data/explamma_15/
+!data/explamma_15/**
+data/explamma_15/*.jsonl
+
+
+outputs/
+outputs1/
+data/cache/
+feature_raw.json

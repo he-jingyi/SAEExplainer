@@ -1,0 +1,46 @@
+explainer:
+  sft_config_path: "configs/explamma_15/config_sft_explamma_15.yaml"
+  checkpoint_dir: "outputs/hybrid_sft_explamma_15/final"
+  temperature: 0.9
+  top_p: 0.9
+  max_new_tokens: 64
+  num_candidates: 6
+  generation_batch_size: 16
+
+generator:
+  backend: "api"
+  model_name: "gpt-5.4-mini"
+  api_model_name: "gpt-5.4-mini"
+  api_base_url: null
+  api_key_env: "OPENAI_API_KEY"
+  timeout_seconds: 60.0
+  max_retries: 3
+  max_concurrency: 16
+  trust_remote_code: true
+  torch_dtype: "bfloat16"
+  attn_implementation: null
+  temperature: 0.8
+  top_p: 0.95
+  max_new_tokens: 512
+  num_texts_per_explanation: 4
+
+target_model:
+  model_name: "meta-llama/Llama-3.1-8B"
+  trust_remote_code: true
+  torch_dtype: "bfloat16"
+  attn_implementation: "flash_attention_2"
+  max_length: 512
+  score_chunk_size: 256
+  score_batch_size: 32
+
+data:
+  input_jsonl: "data/explamma_15/val.jsonl"
+  output_dir: "outputs/preference_explamma_15_val_from_sft"
+  max_features: null
+  random_seed: 42
+  rejected_strategy: "median"
+  min_chosen_activation: 0.0
+  min_score_gap: 0.0
+  filter_min_chosen_activation: 1.0
+  filter_min_group_spread_ratio: 0.10
+  filter_min_relative_gap: 0.15

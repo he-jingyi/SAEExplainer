@@ -1,0 +1,26 @@
+api:
+  base_url: "https://www.neuronpedia.org/api/feature"
+  api_key_env: "NEURONPEDIA_API_KEY"
+  timeout_seconds: 30
+  concurrency: 8
+  requests_per_second: 2.0
+  max_retries: 3
+  retry_statuses: [429, 500, 502, 503, 504]
+  retry_backoff_seconds: 2.0
+
+data_collection:
+  target_model: "llama3.1-8b"
+  sae_family: "llamascope-res-32k"
+  sae_variant: "canonical"
+  dictionary_size: 32768
+  total_samples: 512
+  top_k_activations: 5
+  random_seed: 42
+  enforce_english_only: false
+  english_ascii_ratio_threshold: 0.85
+  output_jsonl: "data/explamma_15/raw_features.jsonl"
+  summary_json: "data/explamma_15/raw_features.summary.json"
+  layers:
+    - layer: 15
+      source_id: "15-llamascope-res-32k"
+      ratio: 1
