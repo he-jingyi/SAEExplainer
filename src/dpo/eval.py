@@ -20,7 +20,7 @@ from src.data_collection.sae_vectors import (
     locator_from_record,
     resolve_record_target_base_model_name,
 )
-from src.preference.prompts import build_generator_prompt_sage_style_json
+from src.preference.prompts import build_generative_prompt
 from src.preference.sae import JumpReluSAEStore
 from src.sft.config import load_sft_config
 from src.sft.dataset import SAEExplainerSFTDataset
@@ -161,7 +161,7 @@ def _generate_texts_from_explanation(
     num_samples: int,
     llm_model: str,
 ) -> tuple[list[str], dict[str, Any]]:
-    prompt = build_generator_prompt_sage_style_json(explanation, num_samples)
+    prompt = build_generative_prompt(explanation, num_samples)
     messages = [
         {
             "role": "system",

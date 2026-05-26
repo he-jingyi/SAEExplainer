@@ -49,7 +49,7 @@ def build_generator_prompt(explanation: str, num_samples: int) -> str:
     )
 
 
-def build_generator_prompt_sage_style_json(explanation: str, num_samples: int) -> str:
+def build_generative_prompt(explanation: str, num_samples: int) -> str:
     return (
         "You are an expert test case generator for Sparse Autoencoder (SAE) features. "
         "Your task is to generate diverse test sentences that strongly activate the given feature.\n\n"
