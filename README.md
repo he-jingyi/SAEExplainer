@@ -1,11 +1,13 @@
-# SAEExplainer
+# SAEExplainer: Interpreting SAE Features with Activation-Guided Preference Optimization
 
-SAEExplainer is a feature-explanation training pipeline built around:
+This repository contains the official code for **SAEExplainer**, a feature-explanation training pipeline built around:
 
 - SFT for feature-conditioned explanation generation
 - preference construction from generated explanations and SAE activation scoring
 - iterative DPO training on the resulting preference pairs
 - evaluation of produced explanations with local activation-based metrics
+
+> **Data and checkpoints:** The datasets and trained model checkpoints are currently being organized and will be released once preparation is complete.
 
 ## Directory Layout
 
